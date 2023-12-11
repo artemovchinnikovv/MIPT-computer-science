@@ -22,17 +22,14 @@ int main()
     for (int i=0;i<N;i++)
     {
         if (a[i]!=0) s=s+1;
-        if (a[i]==0) s=0;
         if ((a[i]==0) and (s<6))
         {
             for (int j=i-1;j>(i-s-1); j--) a[j]=0;
             s=0;
         }
     }
-    cout<<"["<<s<<"]";
     if (s<6)
     {
-        cout<<"!!!";
         for (int j=N-1;j>(N-s-1); j--) a[j]=0;
         s=0;
     }
@@ -44,7 +41,7 @@ int main()
         if (b[i]!=0) s=s+1;
         if ((b[i]==0) and (s>5))
         {
-            for (int j=i-1;j>(i-s-1); j--) b[j]=0;
+            for (int j=i-1;j>(i-s); j--) b[j]=0;
             s=0;
         }
     }
@@ -61,13 +58,6 @@ int main()
     float number=0;
     for (int i=0;i<N;i++) if (b[i]!=0) number=number+1;
     
-    for (int i=0;i<N;i++) cout<<a[i]<<" ";
-    cout<<"\n";
-    for (int i=0;i<N;i++) cout<<b[i]<<" ";
-    
-    cout<<"\n";
-    cout<<(N-number)<<"\n";
-    cout<<summa<<"\n";
     if ((summa/number)!=0) cout<<(round((summa/(N-number))*10)/10);
     else cout<<"0.0";
 	return 0;
